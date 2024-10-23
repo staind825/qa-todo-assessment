@@ -2,7 +2,7 @@
 - ~~Add React files over~~
 - Add bugs
 - Host on Netlify
-- Update ReadMe Accordingly (Likely not a lot to do here as the candidates should be seeing it)
+- Update ReadMe Accordingly (Likely not a lot to do here as the candidates should not be seeing it)
 - Make repo private
 
 # TodoMVC: React
