@@ -1,13 +1,82 @@
-# QA Todo
-- Update ReadMe accordingly with all candidate information. This is a candidate facing repo.
-- Add playwright setup
-- Make repo private
+# Qarchitect Technical Assignment
+Thanks for applying! The steps of this interview process are as follows:
+1. Phone screening
+2. Technical assessment <- this is where we are now!
+3. Technical interview
+4. Cultural interviewv
+5. C-suite interview
 
-## Local preview
+## Technical Assignment Details
+There are 3 main pieces to the homework. Each is described in more detail further in this doc. 
 
-terminal:
-1. `npm install`
-2. `npm run serve`
+We have created our own version of TODO MVC. It is the same as the regular one, but we've added a few bugs. 
+
+We do not want this to take forever, so please do yourself a favor and set a 3 hour time limit and try to stay within that time! We do not want this to take any more of your time than that. 
+
+3 Pieces of the assignment:
+
+1. Create a test strategy for TODO MVC
+2. Help update/create the existing playwright tests in this repo 
+3. Find 4 of the bugs we have purposely created and submit bug reports for each
+
+## Submition Details
+1. Fork this repo into a private repo on your personal github account 
+2. Add your changes to the test plan, playwright tests, and bug reports 
+3. Send a shareable link to Jenna of your repo. She will share the link with the hiring team
+
+## Set up TODO MVC
+
+1. Create a private fork of this repo you are reading now - https://github.com/pdqcom/QA-ToDo-Assessment
+2. Clone the repo to your machine, then navigate your terminal to the repo
+3. In your terminal run `npm install` - set up the dependencies
+4. In your terminal run `npm run serve` - run the program locally on your machine
+
+
+### 1. Create a Test Strategy
+For your test strategy, you can add your thoughts and comments here in the Readme. We've included a template of what we are expecting, but feel free to deviate if you would do it differently.
+
+#### Product Requirements
+- When no todos are added users can only view the add item textbox
+- Users can create a todo list item by typing into the box "What needs to be done?" then selecting Enter on the keyboard
+- Users can have multiple items in their TODO list
+- Once a user submits an item to their list, they can see: thier todo item in the list, how many items are incompleted, All button, Active button, Completed button, and Clear completed items buttons. The view will default to All items when the first todo is added
+- Users can complete an item by selecting the radio button next to the item. Once selected a green checkmark appears and the item is crossed off the list. The number of items left updates to show how many are uncompleted
+- Users can complete all items by selecting the down arrow above the radio buttons when there are uncompleted todos
+- Once a task is completed it can be viewed in the All or Completed views
+- Users can uncheck all todos by selecting the down arrow above radio buttons when all radios are selected
+- Users can edit a todo item by double clicking the item, then selecting Enter on the keyboard to submit the change
+- Users can delete an item in the todo list by selecting the "X" next to the todo item when they hover over the todo item. Once deleted the count of items left is updated to show uncompleted tasks. The item is removed from all lists. 
+- User can select All. This will show all incompleted and completed todos
+- User can select Active. This will only show all uncompleted todos
+- User can select Completed. This will only show all completed todos
+- User can select Clear completed to delete all Completed tasks. All completed tasks will be immediately be removed from view
+- Once a todo is added, the user will always see the bottom banner even if there is no todo in the view (All, Active, Completed)
+- Refreshing the page starts a new state and the users can start again from scratch
+
+### Test plan
+#### Outline a complete testing strategy that covers unit tests, integration tests, and E2E tests.
+
+#### Describe how you would implement security testing within the testing lifecycle.
+
+#### Propose how automated testing can be integrated into existing CI/CD pipelines.
+
+#### Detail any tools and frameworks you would recommend for the testing process, including any specific for performance and load testing.
+
+#### Discuss how you would ensure the testing strategy aligns with agile development practices.
+
+### 2. Update/Create Playwright tests
+We've created a couple tests in playwright, but they could use your help. Can you help improve these existing tests, and write a new one? You can find these tests in the tests folder.
+
+To run playwright you might need to install playwright
+While in your project directory navigate to the tests folder and run `npx playwright install`
+To run the Playright UI run `npx playwright test --ui`
+
+### 3. Subit bug reports
+We've purposely added 4 bugs to this repo. Can you find them all?
+
+In your private github repo, submit 4 bug reports to your repo
+
+
 
 # TodoMVC: React
 
