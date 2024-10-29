@@ -7,21 +7,23 @@ Thanks for applying! The steps of this interview process are as follows:
 5. C-suite interview
 
 ## Technical Assignment Details
-There are 3 main pieces to the homework. Each is described in more detail further in this doc. 
+This assessment is meant to imitate what a working environment is like. You are welcome to use all the tools available to you as you would in the role itself. However, should you progress to the next round of interviews you will be expected to perform an in depth explanation of your solutions.
 
-We have created our own version of TODO MVC. It is the same as the regular one, but we've added a few bugs. 
+We do not want this to take any more of your time than necessary, so please do yourself a favor and set a maximum 3 hour time limit. 
 
-We do not want this to take forever, so please do yourself a favor and set a 3 hour time limit and try to stay within that time! We do not want this to take any more of your time than that. 
+We have created our own version of TODO MVC. It is the same as the regular one, but we've added a few bugs.
+
+There are 3 main pieces to the homework. Each is described in more detail further in this doc.
 
 3 Pieces of the assignment:
 
 1. Create a test strategy for TODO MVC
-2. Help update/create the existing playwright tests in this repo 
+2. Help update/create the existing Playwright tests in this repo 
 3. Find 4 of the bugs we have purposely created and submit bug reports for each
 
 ## Submition Details
 1. Fork this repo into a private repo on your personal github account 
-2. Add your changes to the test plan, playwright tests, and bug reports 
+2. Add your changes to the test plan, Playwright tests, and bug reports 
 3. Send a shareable link to Jenna of your repo. She will share the link with the hiring team
 
 ## Set up TODO MVC
@@ -65,14 +67,14 @@ For your test strategy, you can add your thoughts and comments here in the Readm
 #### Discuss how you would ensure the testing strategy aligns with agile development practices.
 
 ### 2. Update/Create Playwright tests
-We've created a couple tests in playwright, but they could use your help. Can you help improve these existing tests, and write a new one? You can find these tests in the tests folder.
+We've created a handful of tests in Playwright, but they could use your help. Can you help improve these existing tests, and write a new one? You can find these tests in the tests folder.
 
-To run playwright you might need to install playwright
+To run Playwright you might need to install Playwright
 While in your project directory navigate to the tests folder and run `npx playwright install`
 To run the Playright UI run `npx playwright test --ui`
 
-### 3. Subit bug reports
-We've purposely added 4 bugs to this repo. Can you find them all?
+### 3. Submit bug reports
+We've purposely added a handful of bugs to this repo.
 
 In your private github repo, submit 4 bug reports to your repo
 
