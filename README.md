@@ -19,7 +19,7 @@ There are 3 main pieces to the homework. Each is described in more detail furthe
 
 1. Create a test strategy for TODO MVC
 2. Help update/create the existing Playwright tests in this repo 
-3. Find 4 of the bugs we have purposely created and submit bug reports for each
+3. Find a few of the bugs we have purposely created in TODO MVC and submit bug reports for each
 
 ## Submition Details
 1. Fork this repo into a private repo on your personal github account 
@@ -67,7 +67,11 @@ For your test strategy, you can add your thoughts and comments here in the Readm
 #### Discuss how you would ensure the testing strategy aligns with agile development practices.
 
 ### 2. Update/Create Playwright tests
-We've created a handful of tests in Playwright, but they could use your help. Can you help improve these existing tests, and write a new one? You can find these tests in the tests folder.
+We've created two example tests in Playwright, but they could use your help. Can you help improve these existing tests, and write new ones from your test plan? You can find these existing tests in the tests folder of this repo. 
+
+Don't feel like you need to make every single test in your test plan, but we do want to see a good example of your coding. Start by making 6 tests, and then if you are out of time you can make comments of other tests you would have made. 
+
+We also want to see an example of your API testing so we added 3 tests in there using the SWAPI API. More info is in the comments of the todo-CRUD.spec.ts folder of the SWAPI API and what tests we want to see.
 
 To run Playwright you might need to install Playwright
 While in your project directory navigate to the tests folder and run `npx playwright install`
@@ -76,7 +80,7 @@ To run the Playright UI run `npx playwright test --ui`
 ### 3. Submit bug reports
 We've purposely added a handful of bugs to this repo.
 
-In your private github repo, submit 4 bug reports to your repo
+In your private github repo, submit those bug reports to your repo
 
 
 
