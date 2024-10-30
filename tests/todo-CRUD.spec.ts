@@ -37,7 +37,7 @@ test('delete list item', async ({ page, context }) => {
 
 // TODO: Add your other tests from your test plan below. Reminder this whole assessment meant to take less than 3 hours!
 // If you have the time, you can make more than 6 tests. Otherwise, once you finish your 6 tests you can 
-// follow the format below by commenting out test with a descriptive title of your test case you would have made
+// follow the format below by commenting out tests with a descriptive title of your test case you would have made
 
 // test('add test 3', async ({ page, browser }) => {
 //   try {
