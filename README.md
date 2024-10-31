@@ -18,13 +18,13 @@ There are 3 main pieces to the homework. Each is described in more detail furthe
 3 Pieces of the assignment:
 
 1. Create a test strategy for TODO MVC
-2. Help update/create the existing Playwright tests in this repo 
-3. Find a few of the bugs we have purposely created in TODO MVC and submit bug reports for each
+2. Help update the existing Playwright tests as well as create new ones consistent with your testing strategy
+3. Find a few of the bugs we have purposely created in TODO MVC and submit bug reports for each using GitHub issues on your personal repo
 
-## Submition Details
-1. Fork this repo into a private repo on your personal github account 
-2. Add your changes to the test plan, Playwright tests, and bug reports 
-3. Send a shareable link to Jenna of your repo. She will share the link with the hiring team
+## Submission Details
+1. To keep your work private from other applicants, pull this repo and create a [mirror](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository) in your personal GitHub account
+2. Add your changes to the test plan, Playwright tests, and bugs reported in your Github issues
+3. When you are ready to share, invite nate8282, sowardskimberly, matthewstclaire, dkarter, GibbyPDQ, JasonNoonan, Nickjgniklu, and jason-amick to your repo. Send an email to Jenna letting her know you are ready to have your work reviewed
 
 ## Set up TODO MVC
 
@@ -32,6 +32,8 @@ There are 3 main pieces to the homework. Each is described in more detail furthe
 2. Clone the repo to your machine, then navigate your terminal to the repo
 3. In your terminal run `npm install` - set up the dependencies
 4. In your terminal run `npm run serve` - run the program locally on your machine
+5. To run Playwright you might need to install Playwright. While in your project directory navigate to the tests folder and run `npx playwright install`
+6. To run the Playright UI run `npx playwright test --ui`
 
 
 ### 1. Create a Test Strategy
@@ -41,21 +43,21 @@ For your test strategy, you can add your thoughts and comments here in the Readm
 - When no todos are added users can only view the add item textbox
 - Users can create a todo list item by typing into the box "What needs to be done?" then selecting Enter on the keyboard
 - Users can have multiple items in their TODO list
-- Once a user submits an item to their list, they can see: thier todo item in the list, how many items are incompleted, All button, Active button, Completed button, and Clear completed items buttons. The view will default to All items when the first todo is added
+- Once a user submits an item to their list, they can see: their todo item in the list, how many items are uncompleted, All button, Active button, Completed button, and Clear completed items buttons. The view will default to All items when the first todo is added
 - Users can complete an item by selecting the radio button next to the item. Once selected a green checkmark appears and the item is crossed off the list. The number of items left updates to show how many are uncompleted
 - Users can complete all items by selecting the down arrow above the radio buttons when there are uncompleted todos
 - Once a task is completed it can be viewed in the All or Completed views
 - Users can uncheck all todos by selecting the down arrow above radio buttons when all radios are selected
 - Users can edit a todo item by double clicking the item, then selecting Enter on the keyboard to submit the change
 - Users can delete an item in the todo list by selecting the "X" next to the todo item when they hover over the todo item. Once deleted the count of items left is updated to show uncompleted tasks. The item is removed from all lists. 
-- User can select All. This will show all incompleted and completed todos
+- User can select All. This will show all uncompleted and completed todos
 - User can select Active. This will only show all uncompleted todos
 - User can select Completed. This will only show all completed todos
 - User can select Clear completed to delete all Completed tasks. All completed tasks will be immediately be removed from view
 - Once a todo is added, the user will always see the bottom banner even if there is no todo in the view (All, Active, Completed)
 - Refreshing the page starts a new state and the users can start again from scratch
 
-### Test plan
+### Test plan (add your own test plan to the bottom of this ReadMe)
 #### Outline a complete testing strategy that covers unit tests, integration tests, and E2E tests.
 
 #### Describe how you would implement security testing within the testing lifecycle.
@@ -73,9 +75,7 @@ Don't feel like you need to make every single test in your test plan, but we do 
 
 We also want to see an example of your API testing so we added 3 tests in there using the SWAPI API. More info is in the comments of the todo-CRUD.spec.ts folder of the SWAPI API and what tests we want to see.
 
-To run Playwright you might need to install Playwright
-While in your project directory navigate to the tests folder and run `npx playwright install`
-To run the Playright UI run `npx playwright test --ui`
+Make sure you have run the setup instruction for Playwright from the "Set up TODO MVC" section of this ReadMe.
 
 ### 3. Submit bug reports
 We've purposely added a handful of bugs to this repo.
@@ -101,4 +101,4 @@ The only requirement is an installation of Node, to be able to install dependenc
 * NPM (min version: 8.19.3)
 ```
 
-
+## My Test Plan
