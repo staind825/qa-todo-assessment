@@ -37,7 +37,7 @@ There are 3 main pieces to the homework. Each is described in more detail furthe
 
 
 ### 1. Create a Test Strategy
-For your test strategy, you can add your thoughts and comments here in the Readme. We've included a template of what we are expecting, but feel free to deviate if you would do it differently.
+For your test strategy, you can add your thoughts and comments here at the bottom of this the Readme. We've included a template of what we are expecting, but feel free to deviate if you would do it differently.
 
 #### Product Requirements
 - When no todos are added users can only view the add item textbox
