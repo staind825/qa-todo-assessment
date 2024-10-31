@@ -28,8 +28,8 @@ There are 3 main pieces to the homework. Each is described in more detail furthe
 
 ## Set up TODO MVC
 
-1. Create a private fork of this repo you are reading now - https://github.com/pdqcom/QA-ToDo-Assessment
-2. Clone the repo to your machine, then navigate your terminal to the repo
+1. Clone this repo and create a [mirror](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository) in your personal GitHub account of this repo you are reading now - https://github.com/pdqcom/QA-ToDo-Assessment
+2. Navigate your terminal to the repo
 3. In your terminal run `npm install` - set up the dependencies
 4. In your terminal run `npm run serve` - run the program locally on your machine
 5. To run Playwright you might need to install Playwright. While in your project directory navigate to the tests folder and run `npx playwright install`
@@ -37,7 +37,6 @@ There are 3 main pieces to the homework. Each is described in more detail furthe
 
 
 ### 1. Create a Test Strategy
-For your test strategy, you can add your thoughts and comments here at the bottom of this the Readme. We've included a template of what we are expecting, but feel free to deviate if you would do it differently.
 
 #### Product Requirements
 - When no todos are added users can only view the add item textbox
@@ -58,6 +57,7 @@ For your test strategy, you can add your thoughts and comments here at the botto
 - Refreshing the page starts a new state and the users can start again from scratch
 
 ### Test plan (add your own test plan to the bottom of this ReadMe)
+For your test strategy, you can add your thoughts and comments at the bottom of this Readme. We've included a template of what we are expecting, but feel free to deviate if you would do it differently.
 #### Outline a complete testing strategy that covers unit tests, integration tests, and E2E tests.
 
 #### Describe how you would implement security testing within the testing lifecycle.
