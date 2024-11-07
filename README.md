@@ -1,9 +1,9 @@
 # Qarchitect Technical Assignment
 Thanks for applying! The steps of this interview process are as follows:
 1. Phone screening
-2. Technical assessment <- this is where we are now!
+2. Technical assessment <- *this is where we are now!*
 3. Technical interview
-4. Cultural interviewv
+4. Cultural interview
 5. C-suite interview
 
 ## Technical Assignment Details
@@ -101,4 +101,4 @@ The only requirement is an installation of Node, to be able to install dependenc
 * NPM (min version: 8.19.3)
 ```
 
-## My Test Plan
+## Applicant Test Plan
