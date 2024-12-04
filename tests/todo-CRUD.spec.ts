@@ -1,91 +1,62 @@
-import { test, expect } from '@playwright/test';
-import { TIMEOUT } from 'dns';
+import { test } from '@playwright/test';
+import { TodoPage } from './pages/todo.page';
 
-test('add list item', async ({ page, browser }) => {
-  // A kind of bad example, please fix up this test!
-  try {
-    await page.goto('http://127.0.0.1:7002');
-  } catch (error) {
-    throw new Error('Failed to visit local server. You may not have it running');
-  }
+test.describe('Todo CRUD Operations', () => {
+    let todoPage: TodoPage;
 
-  let b = await page.locator('[class="new-todo"]')
-  await b.click()
-  await b.fill('testing 123 testing')
-  await b.press('Enter');
+    test.beforeEach(async ({ page }) => {
+        todoPage = new TodoPage(page);
+        await todoPage.goto();
+    });
+
+    test('add list item', async () => {
+        await todoPage.addTodo('testing 123 testing');
+        await todoPage.expectTodoCount(1);
+        await todoPage.expectTodoText('testing 123 testing');
+    });
+
+    test('delete list item', async () => {
+        await todoPage.addTodo('testing 123 testing');
+        await todoPage.addTodo('testing 123 testing');
+        await todoPage.deleteTodo(0);
+        await todoPage.expectTodoCount(1);
+    });
+
+    test('complete list item', async () => {
+        await todoPage.addTodo('testing 123 testing');
+        await todoPage.toggleTodo();
+        await todoPage.expectTodoCompleted(0, true);
+    });
+
+    test('filter active items', async () => {
+        await todoPage.addTodo('active task');
+        await todoPage.addTodo('completed task');
+        await todoPage.toggleTodo(1);
+        await todoPage.filterTodos('Active');
+        await todoPage.expectTodoCount(1);
+        await todoPage.expectTodoText('active task');
+    });
+
+    test('clear completed items', async () => {
+        await todoPage.addTodo('task to clear');
+        await todoPage.toggleTodo();
+        await todoPage.clearCompletedTodos();
+        await todoPage.expectTodoCount(0);
+    });
+
+    test('toggle all items', async () => {
+        await todoPage.addTodo('task 1');
+        await todoPage.addTodo('task 2');
+        await todoPage.toggleAll();
+        await todoPage.expectTodoCompleted(0, true);
+        await todoPage.expectTodoCompleted(1, true);
+    });
+
+    test.fixme('plural item count', async () => {
+        await todoPage.addTodo('task 1');
+        await todoPage.expectItemsCountText('1 item left');
+        await todoPage.addTodo('task 2');
+        await todoPage.expectItemsCountText('2 items left');
+    });
 });
 
-test('delete list item', async ({ page, context }) => {
-  // A kind of bad example, please fix up this test!
-  try {
-    await page.goto('http://127.0.0.1:7002');
-  } catch (error) {
-    throw new Error('Failed to visit local server. You may not have it running');
-  }
-
-  let b = page.locator('[class="new-todo"]')
-  await b.click()
-  await b.fill('testing 123 testing')
-  await page.keyboard.press('Enter')
-
-  await page.waitForTimeout(2000)
-
-  await page.locator('[data-testid=todo-item-toggle]').hover();
-
-  const deleteButton = await page.locator('[data-testid=todo-item-button]').click();
-});
-
-// TODO: Add your other tests from your test plan below. Reminder this whole assessment meant to take less than 3 hours!
-// If you have the time, you can make more than 6 tests. Otherwise, once you finish your 6 tests you can 
-// follow the format below by commenting out tests with a descriptive title of your test case you would have made
-
-// test('add test 3', async ({ page, browser }) => {
-//   try {
-//     await page.goto('http://127.0.0.1:7002');
-//   } catch (error) {
-//     throw new Error('Failed to visit local server. You may not have it running');
-//   }
-// });
-
-// test('add test 4', async ({ page, browser }) => {
-//   try {
-//     await page.goto('http://127.0.0.1:7002');
-//   } catch (error) {
-//     throw new Error('Failed to visit local server. You may not have it running');
-//   }
-// });
-
-// test('add test 5', async ({ page, browser }) => {
-//   try {
-//     await page.goto('http://127.0.0.1:7002');
-//   } catch (error) {
-//     throw new Error('Failed to visit local server. You may not have it running');
-//   }
-// });
-
-// test('add test 6', async ({ page, browser }) => {
-//   try {
-//     await page.goto('http://127.0.0.1:7002');
-//   } catch (error) {
-//     throw new Error('Failed to visit local server. You may not have it running');
-//   }
-// });
-
-
-
-// TODO We want to see an example of your API testing skills. Please write a test that uses the SWAPI API to test the following:
-
-// API Testing
-// Use swapi documentation https://swapi.dev/documentation
-
-// test('Use https://swapi.dev/api/people to confirm that there are 82 people in the response', async ({ page }) => {
-//   
-// });
-
-// test('Use https://swapi.dev/api/people/1 to find the name of Luke's homeworld', async ({ page }) => {
-//   
-// });
-
-// test('Use https://swapi.dev/api/people/1 with a wookiee encoding to assert the name of the value "whrascwo"', async ({ page }) => {
-//   
-// });
