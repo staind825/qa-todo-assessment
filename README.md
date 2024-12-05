@@ -102,3 +102,61 @@ The only requirement is an installation of Node, to be able to install dependenc
 ```
 
 ## Applicant Test Plan
+# Testing Strategy
+
+## Unit Tests
+This should be the bulk of our testing from a raw numbers perspective.
+
+Unit test coverage should handle:
+- All Functions (mocking to be used where needed)
+- Views / Components (aXe for ADA scanning as well)
+- Controllers
+- Form fields (good place to put boundary test to limit the amount of E2E tests needed on this like this)
+
+Code coverage should be tracked, but I'm not a fan of targeting specific numbers. Code coverage will be situational. I'd like to have something like **SonarQube**/**SonarCloud** giving us feedback on PRs so it's at top of mind.
+
+## Integration / API Tests
+This would be the next highest test count behind unit tests.  
+This will mostly be API tests. Since the results are much more black and white in this space (over UI testing), we should lean heavily on these in our pipelines to ensure we aren't releasing any new issues.
+
+- I'd like to see these tests runnable in any environment (or better yet, without any environment at all).
+- I'd prefer the tests set up their own data rather than relying on any static data. An alternate option would be to restore a db to a certain point prior to running the tests, but that leads to maintenance of the "gold" data as well so I'd prefer option 1.
+- I'd like to have full request and response information on every API call logged to **ReportPortal** (see tools/frameworks below).
+
+## E2E Tests
+These tests are valuable but tend to be flaky.  
+**Playwright** can be used here. Additionally, I'd like to implement a framework that handles logging seamlessly behind the scenes. All actions/ assertions should be logged to **ReportPortal** without the test having to explicitly write any logging statements.
+
+- I prefer **Page Object Model (POM)** for these tests.
+- I'd like these tests to focus on the core features of the application.
+- I'd like these tests run after a build is complete, and have team members notified / monitoring results to ensure no regressions have been introduced.
+- I'd like to follow the same data strategy as the Integration tests. However, where needed (potentially 3rd party dependencies or specific setups that require complicated data) we can use mocks (Playwright can handle these).
+
+## Security Testing
+- **SonarQube** or **SonarCloud** for static code analysis.  
+  Scans run every PR.
+- **Dependabot** or equivalent to monitor packages being used. Or something like **Artifactory** as a package proxy as an alternative.
+
+### Implementing Automated Tests into Existing CI/CD Pipelines
+The first and most basic step would be ensuring we are running/reporting on/breaking on unit tests. This should be implemented via GitHub Actions or whatever is being used for PRs.
+
+To get integration tests running as part of the PR process, we would need to ensure that we can run our tests in an ephemeral environment. In the past, I've used containerization for the app/dependencies, and a proper data strategy to ensure the tests can be run and reported on as part of the PR process.
+
+For E2E tests, we can have a job that runs the tests in whatever environment we choose. This can get triggered post deployment to a static environment. Alternatively, if we can get them running through containerization of everything, even E2E tests can be included in PR runs (unless they are taking too long to give feedback).
+
+## Tooling / Framework
+I prefer keeping the tech stacks matching the dev code where we can (e.g., .NET web services get C# + RestSharp).
+
+For all UI testing, regardless of language, I have leaned heavily on **Playwright** with POM. I've been using Playwright since its infancy and it's been a very solid tool.
+
+I mentioned this above, but I prefer writing frameworks to handle things like logging. For UI testing, all actions/ assertions get logged. And for API testing, all request/response/assertion information gets logged.
+
+When attempting to scale the testing team and support multiple applications, I have distributed the frameworks via packages so that we don't have to make framework updates in multiple places.
+
+I've also been using a tool called **ReportPortal** (https://reportportal.io/) since ~2019. It's a self-hosted (Docker or Kubernetes) application that uses listeners to report all of the testing we do.
+
+For load testing, I've had a lot of success with **K6**. It's always been easy to implement and run both locally or in the cloud if more agents were needed. I'm open to other tools, but this has been a solid one for me.
+
+## Aligning Testing with Agile Practices
+For aligning testing with the team's agile practices, I would use the tools/processes that are in place to ensure the various forms of automation are being included throughout the life cycle of a project.
+
